@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Registration - v1</title>
+</head>
+<body>
+
+    <h1>Course Registration System</h1>
+
+    <h2>Available Courses</h2>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+        </tr>
+
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.code }}</td>
+            <td>{{ course.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
