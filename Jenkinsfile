@@ -1,12 +1,5 @@
 pipeline {
     agent any
-    pipeline {
-    agent any
-
-    environment {
-        DOCKER_PATH = 'C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin'
-    }
-
 
     stages {
 
@@ -17,26 +10,27 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-    steps {
-        bat '"C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" -m pip install -r requirements.txt'
-    }
-}
+            steps {
+                bat '"C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" -m pip install -r requirements.txt'
+            }
+        }
 
-stage('Run Tests') {
-    steps {
-        bat '"C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" -m pytest'
-    }
-}
+        stage('Run Tests') {
+            steps {
+                bat '"C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" -m pytest'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
-                bat '"%DOCKER_PATH%\\docker.exe" build -t course-registration:v1 .'
+                bat '"C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t course-registration:v1 .'
             }
         }
     }
 
     post {
         success {
-            echo 'Course Registration v1 pipeline completed successfully!'
+            echo 'Course Registration v1 pipeline completed successfully.'
         }
 
         failure {
