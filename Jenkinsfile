@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    pipeline {
+    agent any
+
+    environment {
+        DOCKER_PATH = 'C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin'
+    }
+
 
     stages {
 
@@ -22,7 +29,7 @@ stage('Run Tests') {
 }
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t course-registration:v1 .'
+                bat '"%DOCKER_PATH%\\docker.exe" build -t course-registration:v1 .'
             }
         }
     }
