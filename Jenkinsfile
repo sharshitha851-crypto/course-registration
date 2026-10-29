@@ -23,18 +23,18 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat '"C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t course-registration:v2 .'
+                bat '"C:\\Users\\Harshitha S\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t course-registration:v3 .'
             }
         }
     }
 
     post {
         success {
-            echo 'Course Registration v2 pipeline completed successfully.'
+            echo 'Course Registration v3 pipeline completed successfully.'
         }
 
         failure {
-            echo 'Course Registration v2 pipeline failed.'
+            echo 'Course Registration v3 pipeline failed.'
         }
     }
 }
